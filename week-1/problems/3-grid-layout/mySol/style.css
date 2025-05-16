@@ -1,0 +1,9 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: center;
+    width:1200px;
+    margin: auto;
+
+
+}
