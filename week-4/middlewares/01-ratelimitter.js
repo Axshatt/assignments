@@ -1,5 +1,6 @@
 // You have to create a middleware for rate limiting a users request based on their username passed in the header
 
+
 const express = require('express');
 const app = express();
 
@@ -15,6 +16,27 @@ let numberOfRequestsForUser = {};
 setInterval(() => {
     numberOfRequestsForUser = {};
 }, 1000)
+
+app.use(function(req,res,next){
+  const userId = req.header["user-id"]
+  if(numberOfRequestsForUser[userId]){
+
+    numberOfRequestsForUser++;
+
+    if(numberOfRequestsForUser[userId]>5){
+      return res.status(404).json({
+        msg:"Too many requests!"
+      })
+    }
+    else{
+      next();
+    }}
+    else{
+      numberOfRequestsForUser[userId]= 1;
+      next();
+    }
+
+})
 
 app.get('/user', function(req, res) {
   res.status(200).json({ name: 'john' });
