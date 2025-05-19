@@ -1,0 +1,34 @@
+.languagePanel{
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+   padding-inline: 2.5rem
+}
+body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+.container{
+   display: grid;
+            grid-template-columns: 1fr 2fr;
+            background-color: black;
+            width: 1200px;
+            margin: 0 auto;
+            color: white;
+             column-gap: 2rem;
+             padding: 30px;
+
+}
+.flex {
+            display: flex;
+        }
+.verticalCenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .languagePanel img{
+            height: 40px;
+            width:auto;
+        }
